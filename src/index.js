@@ -110,4 +110,36 @@ class LinkedList {
       return `Your list doesn't contain ${value}`;
     }
   }
+
+  find(value) {
+    if (!this.data) {
+      return 'no data';
+    } else {
+      let list = this.data;
+      let num = 0;
+      while (list) {
+        if (list.value == value) {
+          return `${value} is at indice ${num}`;
+        }
+        list = list.next;
+        num++;
+      }
+      return `Your list doesn't contain a node with ${value}`;
+    }
+  }
+
+  toString() {
+    if (!this.data) {
+      return 'no data';
+    } else {
+      let list = this.data;
+      let output = '';
+      while (list) {
+        output += `( ${list.value} ) -> `;
+        list = list.next;
+      }
+      output += 'null';
+      return output;
+    }
+  }
 }
