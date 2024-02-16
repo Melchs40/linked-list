@@ -142,4 +142,39 @@ class LinkedList {
       return output;
     }
   }
+
+  insertAt(value, index) {
+    if (!this.data) {
+      return 'no data';
+    } else {
+      let list = this.data;
+      let num = 0;
+      while (num < index - 1) {
+        list = list.next;
+        num++;
+      }
+      let current = list;
+      let next = list.next;
+      let newNode = new Node();
+      newNode.value = value;
+      current.next = newNode;
+      newNode.next = next;
+    }
+  }
+
+  removeAt(index) {
+    if (!this.data) {
+      return 'no data';
+    } else {
+      let list = this.data;
+      let num = 0;
+      while (num < index - 1) {
+        list = list.next;
+        num++;
+      }
+      let before = list;
+      let after = list.next.next;
+      before.next = after;
+    }
+  }
 }
